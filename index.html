@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Work Space</title>
-  <link rel="stylesheet" href="style/normalize.css">
-  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="index.css">
+  <script defer src="js/choices.min.js"></script>
+  <script defer src="js/script.js"></script>
 </head>
 <body>
   <header class="header">
@@ -26,6 +27,7 @@
 
     <div class="vacancies" id="vacancies">
       <div class="container vacancies__container">
+        <button class="vacancies__filter-btn">Фильтр</button>
         <section class="vacancies__filter filter">
           <h2 class="filter__title">
             Фильтр
@@ -53,7 +55,7 @@
             </fieldset>
             <div class="filter__checkboxes">
               <fieldset class="filter__fieldset">
-                <legend>
+                <legend class="filter__legend">
                   Формат
                 </legend>
                 <label class="filter__label checkbox">
@@ -67,7 +69,7 @@
                 </label>
               </fieldset>
               <fieldset class="filter__fieldset">
-                <legend>
+                <legend class="filter__legend">
                   Опыт работы
                 </legend>
                 <label class="filter__label checkbox">
@@ -84,7 +86,7 @@
                 </label>
               </fieldset>
               <fieldset class="filter__fieldset">
-                <legend>
+                <legend class="filter__legend">
                   Занятость
                 </legend>
                 <label class="filter__label checkbox">
@@ -105,7 +107,7 @@
               <button class="filter__button" type="submit">
                 Применить
               </button>
-              <button class="filter__resset" type="reset">
+              <button class="filter__reset" type="reset">
                 Очистить
               </button>
             </div>
@@ -117,6 +119,69 @@
             Список вакансий
           </h2>
           <ul class="cards__list">
+            <li class="cards__item">
+              <article class="vacancy" tabindex="0">
+                <img class="vacancy__img" src="img/yadro.svg" alt="логотип компании YADRO">
+                <p class="vacancy__company">YADRO</p>
+                <h3 class="vacancy__title">Инженер</h3>
+                <ul class="vacancy__fields">
+                  <li class="vacancy__field">
+                    от 150 000₽
+                  </li>
+                  <li class="vacancy__field">
+                    полная занятость
+                  </li>
+                  <li class="vacancy__field">
+                    офис
+                  </li>
+                  <li class="vacancy__field">
+                    опыт от 3-х лет
+                  </li>
+                </ul>
+              </article>
+            </li>
+            <li class="cards__item">
+              <article class="vacancy" tabindex="0">
+                <img class="vacancy__img" src="img/yadro.svg" alt="логотип компании YADRO">
+                <p class="vacancy__company">YADRO</p>
+                <h3 class="vacancy__title">Инженер</h3>
+                <ul class="vacancy__fields">
+                  <li class="vacancy__field">
+                    от 150 000₽
+                  </li>
+                  <li class="vacancy__field">
+                    полная занятость
+                  </li>
+                  <li class="vacancy__field">
+                    офис
+                  </li>
+                  <li class="vacancy__field">
+                    опыт от 3-х лет
+                  </li>
+                </ul>
+              </article>
+            </li>
+            <li class="cards__item">
+              <article class="vacancy" tabindex="0">
+                <img class="vacancy__img" src="img/yadro.svg" alt="логотип компании YADRO">
+                <p class="vacancy__company">YADRO</p>
+                <h3 class="vacancy__title">Инженер</h3>
+                <ul class="vacancy__fields">
+                  <li class="vacancy__field">
+                    от 150 000₽
+                  </li>
+                  <li class="vacancy__field">
+                    полная занятость
+                  </li>
+                  <li class="vacancy__field">
+                    офис
+                  </li>
+                  <li class="vacancy__field">
+                    опыт от 3-х лет
+                  </li>
+                </ul>
+              </article>
+            </li>
             <li class="cards__item">
               <article class="vacancy" tabindex="0">
                 <img class="vacancy__img" src="img/yadro.svg" alt="логотип компании YADRO">
