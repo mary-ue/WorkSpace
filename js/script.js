@@ -164,6 +164,12 @@ const renderModal = (data) => {
       modal.remove();
     }
   });
+
+  document.addEventListener('keydown', ({ key }) => {
+    if (key === 'Escape') {
+      modal.remove();
+    }
+  });
 };
 
 // open Modal
@@ -201,6 +207,7 @@ const closeFilter = (btn, dropDown, classNameBtn, classNameDd) => {
 // Start
 const init = () => {
   const filterForm = document.querySelector('.filter__form');
+  const filterResetBtn = document.querySelector('.filter__reset');
   const vacanciesFilterBtn = document.querySelector('.vacancies__filter-btn');
   const vacanciesFilter = document.querySelector('.vacancies__filter');
 
@@ -209,14 +216,26 @@ const init = () => {
       closeFilter(
         vacanciesFilterBtn,
         vacanciesFilter,
-        'vacancies__filter-btn_active', 
+        'vacancies__filter-btn_active',
         'vacancies__filter_active'
       );
     } else {
       openFilter(
         vacanciesFilterBtn,
         vacanciesFilter,
-        'vacancies__filter-btn_active', 
+        'vacancies__filter-btn_active',
+        'vacancies__filter_active'
+      );
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (vacanciesFilterBtn.classList.contains('vacancies__filter-btn_active')) {
+      // vacanciesFilter.style.height = `${vacanciesFilter.scrollHeight}px`;
+      closeFilter(
+        vacanciesFilterBtn,
+        vacanciesFilter,
+        'vacancies__filter-btn_active',
         'vacancies__filter_active'
       );
     }
@@ -243,6 +262,12 @@ const init = () => {
     }
   );
 
+  // reset btn
+  filterResetBtn.addEventListener('click', () => {
+    filterForm.reset();
+    // !todo
+  });
+
   // get vacancies
   const urlWithParams = new URL(`${API_URL}${VACANCY_URL}`);
 
@@ -263,6 +288,15 @@ const init = () => {
     }
   });
 
+  cardsList.addEventListener('keydown', ({ code, target }) => {
+    const vacancyCard = target.closest('.vacancy');
+    if ((code === 'Enter' || code === 'NumpadEnter') && vacancyCard) {
+      const vacancyId = vacancyCard.dataset.id;
+      openModal(vacancyId);
+      target.blur();
+    }
+  });
+
   // filter vacancies
   filterForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
@@ -273,9 +307,18 @@ const init = () => {
       urlWithParam.searchParams.append(key, value);
     });
 
-    getData(urlWithParam, renderVacancies, renderError).then(() => {
-      lastUrl = urlWithParam;
-    });
+    getData(urlWithParam, renderVacancies, renderError)
+      .then(() => {
+        lastUrl = urlWithParam;
+      })
+      .then(() => {
+        closeFilter(
+          vacanciesFilterBtn,
+          vacanciesFilter,
+          'vacancies__filter-btn_active',
+          'vacancies__filter_active'
+        );
+      });
   });
 };
 
