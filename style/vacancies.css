@@ -43,8 +43,20 @@
     margin-bottom: 24px;
     display: flex;
     align-items: center;
-    transition: margin-bottom .2s ease-in-out;
+    color: #2A18FF;
+    transition: margin-bottom .2s ease-in-out, color .2s ease-in-out;
     transition-delay: .2s;
+  }
+
+  
+  .vacancies__filter-btn:focus-visible {
+    outline: 2px solid #A6ADFF;
+    border-radius: 4px;
+    outline-offset: 2px;
+}
+
+  .vacancies__filter-btn:hover:not(:focus) {
+    color: #A6ADFF;
   }
 
   .vacancies__filter-btn_active {
@@ -52,16 +64,19 @@
     transition-delay: 0;
   }
 
-  .vacancies__filter-btn::after {
-    content: '';
+  .vacancies__filter-btn-arrow {
+    position: relative;
+    top: -2px;
     display: block;
     width: 20px;
     height: 20px;
-    background: url('../img/arrow-blue.svg') no-repeat center;
+    transform: none;
+    transition: all .4s ease-in-out;
   }
 
-  .vacancies__filter-btn_active::after {
-    transform: rotate(180deg);
+  .vacancies__filter-btn_active .vacancies__filter-btn-arrow {
+    top: 2px;
+    transform: rotate(-180deg);
   }
 
   .vacancies__filter {
